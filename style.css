@@ -1,0 +1,236 @@
+/* ---------- Cores principais ---------- */
+:root {
+    --bege-fundo: #e9e4d7; /* Fundo principal */
+    --verde-musgo-claro: #687a61; /* Verde claro */
+    --verde-musgo-medio: #4d6046; /* Verde médio */
+    --verde-musgo-escuro: #2f3e2e; /* Verde escuro */
+    --texto: #1f291e; /* Texto escuro */
+}
+
+/* ---------- Estilos Globais ---------- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bege-fundo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--verde-musgo-escuro);
+}
+
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* ---------- Cabeçalho ---------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--verde-musgo-medio);
+    border-bottom: 2px solid var(--verde-musgo-escuro);
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.menu a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--bege-fundo);
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: var(--texto);
+}
+
+/* Ícone do menu (modo responsivo) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: var(--bege-fundo);
+    cursor: pointer;
+}
+
+/* ---------- Redes Sociais ---------- */
+.social-media {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-media a {
+    color: var(--texto);
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: var(--bege-fundo);
+    transform: scale(1.2);
+}
+
+/* ---------- Carrossel ---------- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+.carousel-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Seção Ecopontos ---------- */
+.ecopontos {
+    padding: 40px 20px;
+    background-color: var(--verde-musgo-claro);
+    text-align: center;
+}
+
+.ecopontos h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.ecoponto-card {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--verde-musgo-medio);
+    background-color: var(--bege-fundo);
+    max-width: 400px;
+    border-radius: 8px;
+    color: var(--texto);
+}
+
+/* ---------- Rodapé ---------- */
+.footer {
+    background-color: var(--verde-musgo-escuro);
+    color: var(--bege-fundo);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: var(--verde-musgo-claro);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* ---------- Responsividade ---------- */
+
+/* Dispositivos menores que 768px (Tablets) */
+@media (max-width: 768px) {
+    /* Cabeçalho */
+    .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--verde-musgo-medio);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding: 20px;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu.open {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Redes sociais */
+    .social-media {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+    }
+
+    /* Ecopontos */
+    .ecoponto-card {
+        width: 90%;
+    }
+
+    /* Carrossel */
+    .carousel-container {
+        height: 300px;
+    }
+}
+
+/* Dispositivos menores que 480px (Smartphones) */
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.3em;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .ecoponto-card {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .footer {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
